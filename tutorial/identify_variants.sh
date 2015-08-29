@@ -24,9 +24,10 @@ samtools mpileup -g -f genomes/NC_008253.fna alignments/sim_reads_aligned.sorted
 # -v:  output potential variant sites only
 # -e:  likelihood based analyses
 printf "\n>Calling variants with bcftools\n"
-bcftools view -c -v variants/sim_variants.bcf > variants/sim_variants.vcf
+bcftools call -c -v variants/sim_variants.bcf > variants/sim_variants.vcf
 
 printf "\nAll done.\n"
 
 # Then, you can do tview...
-#samtools tview alignments/sim_reads_aligned.sorted.bam genomes/NC_008253.fna
+echo "Now you could visualize the analysis result, e.g., like this:"
+echo "samtools tview alignments/sim_reads_aligned.sorted.bam genomes/NC_008253.fna"
